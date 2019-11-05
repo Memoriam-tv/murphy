@@ -1,0 +1,1 @@
+web: MURPHY_PORT=${PORT} npm start
