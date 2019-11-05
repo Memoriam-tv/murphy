@@ -78,6 +78,8 @@ app.use('/event', liveHls.eventFunction);
 // a.k.a. "sliding window"
 app.use('/live', liveHls.live);
 
+app.use("/control", liveHls.control);
+
 app.get('/crossdomain.xml', function(req, res) {
   fs.readFile(path.join(__dirname, 'crossdomain.xml'), function(error, data) {
     if (error) {

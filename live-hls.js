@@ -473,8 +473,8 @@ const ui = function(request, response) {
           button.replace('url', errorPath).replace('errorcode', 'manifestnotfound=1').replace('errortext','Trigger a 404 for the next manifest response') +
           button.replace('url', errorPath).replace('errorcode', 'manifestnotfound=2').replace('errortext','Trigger a 404 for every manifest response') +
           button.replace('url', errorPath).replace('errorcode', 'manifestnotfound=0').replace('errortext','Trigger a 200 for every manifest response') +
-          button.replace('url', '/live').replace('errorcode', 'resetStream=1&url=' + key).replace('errortext','Reset stream') +
-          button.replace('url', '/live').replace('errorcode', 'stopStream=1&url=' + key).replace('errortext','Stop stream') +
+          button.replace('url', '/control').replace('errorcode', 'resetStream=1&url=' + key).replace('errortext','Reset stream') +
+          button.replace('url', '/control').replace('errorcode', 'stopStream=1&url=' + key).replace('errortext','Stop stream') +
           '</tr>\n';
       }
 
@@ -947,6 +947,30 @@ const getManifestObjects = function (request, response, body, streamtype, fullur
 
  */
 
+const control = function(request, response, streamtype) {
+  const { url, resetStream, stopStream } = request.query;
+
+  if (Number(resetStream) === 1) {
+    resetLiveStream(url);
+    return response.send(`Stream ${url} has been reset.`);
+  }
+
+  if (Number(resetStream) === 2) {
+    resetAllStreams();
+    return response.send(`All streams have been reset.`);
+  }
+
+  if (Number(stopStream) === 1) {
+    stopLiveStream(url);
+    return response.send(`Stream ${url} has been stopped.`);
+  }
+
+  if (Number(stopStream) === 2) {
+    stopAllStreams();
+    return response.send(`All streams have been stopped.`);
+  }
+};
+
 const stream = function(request, response, streamtype) {
   var duration, event, playlist, result, renditionName, manifestHeader,
     manifestResources, streampath, tsstreampath, stream, fullurl, baseurl;
@@ -1003,5 +1027,6 @@ module.exports = {
   getResources: getResources,
   extractResourceWindow: extractResourceWindow,
   processErrors: processErrors,
-  debug: debug
+  debug: debug,
+  control: control
 };

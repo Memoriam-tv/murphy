@@ -21,7 +21,13 @@
 <table class="tg">
     <tr>
         <th class="tg-031e">Stream</th>
-        <th class="tg-yw4l" colspan="6"></th>
+        <th class="tg-yw4l" colspan="4"></th>
+        <th>
+            <button onclick="makeRequest('/control?resetStream=2')">Reset All streams</button>            
+        </th>
+        <th>
+            <button onclick="makeRequest('/control?stopStream=2')">Stop All streams</button>            
+        </th>
     </tr>
     <!--InjectRows-->
 </table>
