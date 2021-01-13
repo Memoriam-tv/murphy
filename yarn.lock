@@ -375,9 +375,9 @@ negotiator@0.6.2:
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
 node-mocks-http@^1.5.1:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.8.0.tgz#201a882bd1f8473de6a14bf41850d373404fde32"
-  integrity sha512-A6YB8+sTiHZPTPf1KfwZ3sAQYSSNJTWd762IOptAmM2d6XUQ9Q1wMh+uJ7a7n2Vy6NKmODfZArqX6Rbmlg+8Fw==
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/node-mocks-http/-/node-mocks-http-1.10.0.tgz#6c80a4a50577396dfd2410e3de79ed14112d7a23"
+  integrity sha512-dFnwFc2i8m1EKpN8F9Tn42rAkfopah2FbNN2qETh+cmIT71XRzwwNXeXUd58WWX7r3Wgk1r54vGcUR9DeExAOQ==
   dependencies:
     accepts "^1.3.7"
     depd "^1.1.0"
